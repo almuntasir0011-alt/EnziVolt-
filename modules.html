@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081321">
+<meta name="description" content="EnziVolt platform module directory — live, in development and coming soon.">
+<title>EnziVolt | Platform Modules</title>
+<style>
+:root{--bg:#081321;--panel:#101f33;--panel2:#152942;--line:#29415c;--text:#edf5ff;--muted:#a9bbd0;--gold:#f4c84b;--cyan:#73d5e5;--green:#69d5a5;--amber:#f5bd59}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#183653 0,transparent 38%),linear-gradient(145deg,#081321,#0d1b2d 60%,#081321);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Noto Sans Bengali",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+header{border-bottom:1px solid #ffffff1c;background:#081321cc;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;font-size:22px;color:var(--gold)}.links{display:flex;gap:18px;align-items:center;color:var(--muted);font-size:14px}.links a:hover{color:var(--gold)}
+.hero{padding:62px 0 32px}.eyebrow{font-size:12px;font-weight:850;letter-spacing:.16em;color:var(--gold)}h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:12px 0}.lead{color:var(--muted);max-width:760px;font-size:17px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 8px}.pill{display:inline-flex;align-items:center;gap:7px;border-radius:30px;padding:6px 11px;font-size:11px;font-weight:850;letter-spacing:.04em;border:1px solid}
+.live{color:var(--green);border-color:#34765d;background:#173b32}.progress{color:var(--amber);border-color:#80602e;background:#3c2d18}.soon{color:var(--cyan);border-color:#2c6575;background:#153342}
+.section-title{margin:36px 0 16px}.section-title h2{font-size:25px;margin:0 0 4px}.section-title p{margin:0;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{border:1px solid var(--line);border-radius:17px;padding:20px;background:linear-gradient(150deg,var(--panel),var(--panel2));min-height:180px;display:flex;flex-direction:column}.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.number{font-size:12px;color:var(--gold);font-weight:900;letter-spacing:.1em}.card h3{font-size:18px;margin:13px 0 6px}.card p{font-size:14px;color:var(--muted);margin:0}.note{font-size:12px;color:#d3dfec;margin-top:auto;padding-top:14px}
+.notice{margin:30px 0;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:#ffffff08;color:var(--muted);font-size:13px}.back{display:inline-block;margin:8px 0 42px;padding:10px 15px;border-radius:10px;background:var(--gold);color:#102033;font-weight:850}
+footer{border-top:1px solid #ffffff1c;padding:24px 0;color:var(--muted);font-size:13px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.nav{padding:14px 0;align-items:flex-start}.links{gap:12px;font-size:12px;flex-wrap:wrap;justify-content:flex-end}.grid{grid-template-columns:1fr}.hero{padding-top:42px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="index.html">⚡ EnziVolt</a><nav class="links" aria-label="Main navigation"><a href="index.html">Home</a><a href="modules.html" aria-current="page">Platform Modules</a><a href="index.html#services">Services</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<div class="eyebrow">ENZIVOLT · MASTER PLAN</div>
+<h1>এক জায়গায় EnziVolt-এর সব মডিউল</h1>
+<p class="lead">সম্পূর্ণ ফিচার ব্যবহার করা যাবে, কাজ চলমান থাকলে তার অগ্রগতি দেখা যাবে, আর ভবিষ্যতের পরিকল্পনাগুলোও আগেই তালিকাভুক্ত থাকবে। প্রতিটি মডিউলের অবস্থা স্পষ্টভাবে দেখানো হচ্ছে।</p>
+<div class="legend"><span class="pill live">● LIVE — ব্যবহারযোগ্য</span><span class="pill progress">◐ IN DEVELOPMENT — কাজ চলছে</span><span class="pill soon">○ COMING SOON — অপেক্ষমাণ</span></div>
+</section>
+
+<section aria-labelledby="live-title">
+<div class="section-title"><h2 id="live-title">Live modules</h2><p>বর্তমানে ওয়েবসাইটে উপলভ্য কাঠামো ও নেভিগেশন।</p></div>
+<div class="grid">
+<article class="card"><div class="card-top"><span class="number">01</span><span class="pill live">LIVE</span></div><h3>Home & Shared Navigation</h3><p>EnziVolt হোমপেজ, প্রধান মেনু এবং responsive navigation কাঠামো।</p><div class="note">বর্তমান ওয়েবসাইটের মূল প্রবেশপথ</div></article>
+<article class="card"><div class="card-top"><span class="number">02</span><span class="pill live">LIVE</span></div><h3>Platform Module Directory</h3><p>সব মডিউলের অবস্থা, পরিচিতি এবং Master Plan অনুযায়ী অগ্রগতি দেখার পেজ।</p><div class="note">আপনি এখন এই পেজটি দেখছেন</div></article>
+</div>
+</section>
+
+<section aria-labelledby="progress-title">
+<div class="section-title"><h2 id="progress-title">In development</h2><p>কোড বা প্রাথমিক কাঠামো আছে; ইন্টিগ্রেশন, নিরাপত্তা অথবা পরীক্ষা বাকি।</p></div>
+<div class="grid">
+<article class="card"><div class="card-top"><span class="number">P0</span><span class="pill progress">IN DEVELOPMENT</span></div><h3>Backend & Customer Request</h3><p>Render API, PostgreSQL, Netlify সংযোগ, কাস্টমার রিকোয়েস্ট জমা ও Admin status update যাচাই।</p><div class="note">পরবর্তী অগ্রাধিকার — End-to-end test</div></article>
+<article class="card"><div class="card-top"><span class="number">P1</span><span class="pill progress">IN DEVELOPMENT</span></div><h3>Authentication & User Roles</h3><p>Login, logout, session, customer/technician/admin এবং employer/vendor permission যাচাই।</p><div class="note">Production access control এখনো অনুমোদিত নয়</div></article>
+<article class="card"><div class="card-top"><span class="number">P2</span><span class="pill progress">IN DEVELOPMENT</span></div><h3>Module Verification</h3><p>Home, Services, Customer, Technician, Messages, Admin, Engineering, Marketplace ও Employment মডিউলের পরীক্ষা।</p><div class="note">Desktop, mobile, API ও permission checks বাকি</div></article>
+<article class="card"><div class="card-top"><span class="number">P3</span><span class="pill progress">IN DEVELOPMENT</span></div><h3>Employment Hub Prototype</h3><p>প্রাথমিক search/filter ও browser-side draft prototype আছে; বাস্তব নিয়োগকর্তা বা verified vacancy নয়।</p><div class="note">বাস্তব আবেদন জমা এখনো চালু নয়</div></article>
+</div>
+</section>
+
+<section aria-labelledby="soon-title">
+<div class="section-title"><h2 id="soon-title">Coming soon</h2><p>Master Plan অনুযায়ী ধাপে ধাপে তৈরি হবে।</p></div>
+<div class="grid">
+<article class="card"><div class="card-top"><span class="number">01</span><span class="pill soon">COMING SOON</span></div><h3>Unified Design System</h3><p>একই Logo, colour, typography, buttons, cards, forms, header/footer এবং responsive layout।</p></article>
+<article class="card"><div class="card-top"><span class="number">02</span><span class="pill soon">COMING SOON</span></div><h3>Customer Portal</h3><p>Customer account, service request history, status tracking এবং notifications।</p></article>
+<article class="card"><div class="card-top"><span class="number">03</span><span class="pill soon">COMING SOON</span></div><h3>Technician Portal</h3><p>Technician profile, assigned jobs, schedule, work updates এবং completion evidence।</p></article>
+<article class="card"><div class="card-top"><span class="number">04</span><span class="pill soon">COMING SOON</span></div><h3>Messages & Support</h3><p>Customer, technician ও admin-এর communication এবং support history।</p></article>
+<article class="card"><div class="card-top"><span class="number">05</span><span class="pill soon">COMING SOON</span></div><h3>Admin Control Center</h3><p>User/role management, request moderation, audit log এবং system monitoring।</p></article>
+<article class="card"><div class="card-top"><span class="number">06</span><span class="pill soon">COMING SOON</span></div><h3>Engineering Workspace</h3><p>Engineering calculators, tools, drawings, technical resources ও project records।</p></article>
+<article class="card"><div class="card-top"><span class="number">07</span><span class="pill soon">COMING SOON</span></div><h3>Business & Marketplace</h3><p>Vendor onboarding, product submissions, moderation, stock ও order workflows।</p></article>
+<article class="card"><div class="card-top"><span class="number">08</span><span class="pill soon">COMING SOON</span></div><h3>Global Employment Hub</h3><p>Verified employers, verified vacancies, candidate profiles, CV upload ও application submission।</p></article>
+<article class="card"><div class="card-top"><span class="number">09</span><span class="pill soon">COMING SOON</span></div><h3>Automation & Analytics</h3><p>Core workflow ও permissions স্থিতিশীল হওয়ার পর monitored automation এবং reporting।</p></article>
+<article class="card"><div class="card-top"><span class="number">10</span><span class="pill soon">COMING SOON</span></div><h3>Production Release</h3><p>Security review, backup/restore, performance, accessibility, monitoring ও release checklist।</p></article>
+</div>
+</section>
+
+<div class="notice"><strong>গুরুত্বপূর্ণ:</strong> LIVE মানে কেবল এই directory ও navigation বর্তমানে প্রকাশিত পেজ। IN DEVELOPMENT বা COMING SOON মডিউলকে কার্যকর production service হিসেবে ব্যবহার বা প্রচার করা যাবে না। Master Plan-এর acceptance checks পাস করলে status আপডেট হবে।</div>
+<a class="back" href="index.html">← EnziVolt Home</a>
+</main>
+<footer><div class="wrap">© EnziVolt · Expert Engineering. World-Class Electrical Security.</div></footer>
+</body>
+</html>
