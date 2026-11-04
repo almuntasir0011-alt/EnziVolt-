@@ -27,6 +27,7 @@ jobs:
           node --check shared/site-nav.js
           node --check shared/supabase-client.js
           node --check shared/portal-app.js
+          node --check engineering/research-hub.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
