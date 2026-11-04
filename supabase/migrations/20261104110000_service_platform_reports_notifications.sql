@@ -41,7 +41,9 @@ alter table public.service_work_reports enable row level security;
 alter table public.service_notifications enable row level security;
 
 grant select, insert, update on public.service_work_reports to authenticated;
-grant select, update on public.service_notifications to authenticated;
+grant select on public.service_notifications to authenticated;
+revoke update on public.service_notifications from authenticated;
+grant update (read_at) on public.service_notifications to authenticated;
 grant usage, select on sequence public.service_work_reports_id_seq to authenticated;
 
 drop policy if exists service_work_reports_select_participant on public.service_work_reports;
@@ -220,3 +222,49 @@ begin
     begin alter publication supabase_realtime add table public.service_messages; exception when duplicate_object then null; end;
   end if;
 end $$;
+
+
+create or replace function private.on_service_request_received_notification()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if new.customer_user_id is not null then
+    perform private.notify_service_participants(new.customer_user_id,new.request_id,'request_received',
+      'Request received','EnziVolt has received your service request.');
+  end if;
+  return new;
+end;
+$$;
+revoke all on function private.on_service_request_received_notification() from public, anon, authenticated;
+
+drop trigger if exists trg_service_request_received_notification on public.service_requests;
+create trigger trg_service_request_received_notification
+after insert on public.service_requests
+for each row execute function private.on_service_request_received_notification();
+
+create or replace function private.on_service_work_report_notification()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare v_customer uuid;
+begin
+  select customer_user_id into v_customer
+  from public.service_requests where request_id = new.request_id;
+  if v_customer is not null then
+    perform private.notify_service_participants(v_customer,new.request_id,'work_report',
+      'Work report submitted','The technician submitted a completion report for your request.');
+  end if;
+  return new;
+end;
+$$;
+revoke all on function private.on_service_work_report_notification() from public, anon, authenticated;
+
+drop trigger if exists trg_service_work_report_notification on public.service_work_reports;
+create trigger trg_service_work_report_notification
+after insert on public.service_work_reports
+for each row execute function private.on_service_work_report_notification();
