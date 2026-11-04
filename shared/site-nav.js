@@ -14,7 +14,7 @@
   routes.forEach(([label,url])=>{const a=document.createElement("a");a.href=base+url;a.textContent=label;if(path===url)a.setAttribute("aria-current","page");if(label==="Administration")a.className="ev-site-admin";links.appendChild(a);});
   const old=document.querySelector(".site-header")||document.querySelector("#ev-global-nav")||document.querySelector("body>header")||document.querySelector(".nav");
   if(old)old.replaceWith(nav);else document.body.insertBefore(nav,document.body.firstChild);
-  document.querySelectorAll('a[href^="/"]').forEach(a=>{if(!a.closest(".ev-site-links")&&!a.href.startsWith("mailto:")&&!a.href.startsWith("tel:"))a.setAttribute("href",base+a.getAttribute("href"));});
+  document.querySelectorAll('a[href^="/"]').forEach(a=>{if(!a.closest(".ev-site-header")&&!a.href.startsWith("mailto:")&&!a.href.startsWith("tel:"))a.setAttribute("href",base+a.getAttribute("href"));});
   const btn=nav.querySelector(".ev-site-toggle");
   btn.addEventListener("click",()=>{const open=links.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));});
   links.addEventListener("click",e=>{if(e.target.closest("a")&&window.matchMedia("(max-width:850px)").matches){links.classList.remove("open");btn.setAttribute("aria-expanded","false");}});
