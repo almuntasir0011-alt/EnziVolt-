@@ -1,0 +1,34 @@
+name: Validate EnziVolt feature branches
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["feature/service-platform-v1-1"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check JavaScript syntax
+        run: |
+          node --check shared/site-nav.js
+          node --check shared/supabase-client.js
+          node --check shared/portal-app.js
+          node --check engineering/research-hub.js
+      - name: Check required portal pages and modules
+        run: |
+          test -s customer/index.html
+          test -s technician/index.html
+          test -s administration/index.html
+          test -s shared/portal-app.js
+          grep -q 'customer_profiles' shared/portal-app.js
+          grep -q 'technician_assignments' shared/portal-app.js
+          grep -q 'admin_memberships' shared/portal-app.js
