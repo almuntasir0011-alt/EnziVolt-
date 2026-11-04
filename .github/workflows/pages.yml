@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate JavaScript syntax
+        run: |
+          node --check shared/site-nav.js
+          node --check shared/supabase-client.js
+          node --check shared/portal-app.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
