@@ -12,8 +12,17 @@
   document.head.appendChild(style);
   const links=nav.querySelector("#ev-site-links");
   routes.forEach(([label,url])=>{const a=document.createElement("a");a.href=base+url;a.textContent=label;if(path===url)a.setAttribute("aria-current","page");if(label==="Administration")a.className="ev-site-admin";links.appendChild(a);});
-  const old=document.querySelector(".site-header")||document.querySelector("#ev-global-nav")||document.querySelector("body>header")||document.querySelector(".nav");
-  if(old)old.replaceWith(nav);else document.body.insertBefore(nav,document.body.firstChild);
+  const homeHeader=document.querySelector("body>header.nav");
+  if(homeHeader && (path==="/" || path==="")){
+    // Preserve the homepage's original branded header and visual hierarchy.
+    const homeLinks=homeHeader.querySelector(".links");
+    if(homeLinks && !homeLinks.querySelector('a[href*="/engineering/"]')){
+      const hub=document.createElement("a");hub.href=base+"/engineering/";hub.textContent="Engineering Hub";homeLinks.appendChild(hub);
+    }
+  }else{
+    const old=document.querySelector(".site-header")||document.querySelector("#ev-global-nav")||document.querySelector("body>header")||document.querySelector(".nav");
+    if(old)old.replaceWith(nav);else document.body.insertBefore(nav,document.body.firstChild);
+  }
   document.querySelectorAll('a[href^="/"]').forEach(a=>{if(!a.closest(".ev-site-header")&&!a.href.startsWith("mailto:")&&!a.href.startsWith("tel:"))a.setAttribute("href",base+a.getAttribute("href"));});
   const btn=nav.querySelector(".ev-site-toggle");
   btn.addEventListener("click",()=>{const open=links.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));});
